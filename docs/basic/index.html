@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SkyWay - Tester</title>
+    <style>
+      body { margin: 0; }
+      h1 { text-align: center; }
+      h1, h2 { margin: 0; margin-bottom: 8px; }
+      video { background-color: #111; width: 200px; }
+      audio { width: 200px; }
+      section { padding: 8px; margin-bottom: 8px; }
+      section:nth-child(even) { background-color: #eee; }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>SkyWay Tester</h1>
+
+      <section data-settings-section>
+        <h2>Settings</h2>
+        <div>
+          <div>
+            <label>
+              API key:
+              <input type="text" data-api-key placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" />
+            </label>
+          </div>
+          <div>
+            <label>
+              Sign:
+              <input type="text" data-sign-url placeholder="https://xxxxx-example.com:443" />
+            </label>
+          </div>
+          <div>
+            <label>
+              ForceTURN:
+              <input type="checkbox" data-force-turn>
+            </label>
+          </div>
+        </div>
+        <hr />
+        <div data-meta></div>
+      </section>
+
+      <section data-signaling-section>
+        <h2>Signaling</h2>
+        <div>
+          <button data-connect>connect</button>
+          <button data-disconnect>disconnect</button>
+          <button data-reconnect>reconnect</button>
+          <button data-destroy>destory</button>
+        </div>
+      </section>
+
+      <section data-media-connection-section>
+        <h2>MediaConnection</h2>
+        <div>
+          <div>
+            Local:
+            <video data-local-video playsinline muted></video>
+          </div>
+          <div>
+            Remote:
+            <video data-remote-video playsinline controls></video>
+          </div>
+          <div>
+            <button data-setup>setUp</button>
+            <input type="text" data-local-id placeholder="xxxxxxxxxxxxxxxx" readonly />
+            ⇔
+            <input type="text" data-remote-id placeholder="xxxxxxxxxxxxxxxx" />
+          </div>
+          <div>
+            <select data-gum-select>
+              <option value="VA">video+audio</option>
+              <option value="V-">video</option>
+              <option value="-A">audio</option>
+              <option value="--">null</option>
+            </select>
+            <button data-call>call</button>
+            <button data-replace>replace</button>
+          </div>
+          <div>
+            <button data-close>close</button>
+            <button data-fclose>forceClose</button>
+          </div>
+        </div>
+      </section>
+
+      <section data-data-connection-section>
+        <h2>DataConnection</h2>
+        <div>
+          <div>
+            <pre data-data-sink>...</pre>
+          </div>
+          <div>
+            <button data-setup>setUp</button>
+            <input type="text" data-local-id placeholder="xxxxxxxxxxxxxxxx" readonly />
+            ⇔
+            <input type="text" data-remote-id placeholder="xxxxxxxxxxxxxxxx" />
+          </div>
+          <div>
+            <button data-connect>connect</button>
+            <button data-send>send</button>
+          </div>
+          <div>
+            <button data-close>close</button>
+            <button data-fclose>forceClose</button>
+          </div>
+        </div>
+      </section>
+
+      <section data-mesh-room-section>
+        <h2>MeshRoom</h2>
+        <div>
+          <div>
+            Local:
+            <video data-local-video playsinline muted></video>
+          </div>
+          <div>
+            Remote(s):
+            <div data-remote-videos></div>
+          </div>
+          <div>
+            <pre data-data-sink>...</pre>
+          </div>
+          <div>
+            <button data-setup>setUp</button>
+            <input type="text" data-local-id placeholder="xxxxxxxxxxxxxxxx" readonly />
+            <input type="text" data-room-id placeholder="xxxx" />
+          </div>
+          <div>
+            <select data-gum-select>
+              <option value="VA">video+audio</option>
+              <option value="V-">video</option>
+              <option value="-A">audio</option>
+              <option value="--">null</option>
+            </select>
+            <button data-join>join</button>
+            <button data-replace>replace</button>
+            <button data-send>send</button>
+          </div>
+          <div>
+            <button data-close>close</button>
+          </div>
+        </div>
+      </section>
+
+      <section data-sfu-room-section>
+        <h2>SfuRoom</h2>
+        <div>
+          <div>
+            Local:
+            <video data-local-video playsinline muted></video>
+          </div>
+          <div>
+            Remote(s):
+            <div data-remote-videos></div>
+          </div>
+          <div>
+            <pre data-data-sink>...</pre>
+          </div>
+          <div>
+            <button data-setup>setUp</button>
+            <input type="text" data-local-id placeholder="xxxxxxxxxxxxxxxx" readonly />
+            <input type="text" data-room-id placeholder="xxxx" />
+          </div>
+          <div>
+            <select data-gum-select>
+              <option value="VA">video+audio</option>
+              <option value="V-">video</option>
+              <option value="-A">audio</option>
+              <option value="--">null</option>
+            </select>
+            <button data-join>join</button>
+            <button data-replace>replace</button>
+            <button data-send>send</button>
+          </div>
+          <div>
+            <button data-close>close</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <script src="//cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
